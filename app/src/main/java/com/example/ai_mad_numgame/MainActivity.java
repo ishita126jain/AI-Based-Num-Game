@@ -95,22 +95,22 @@ public class MainActivity extends AppCompatActivity {
             button4.setText(correctAnswer + 2 +"");
         }
         if(correctButton == 1){
-            button1.setText(correctAnswer + "");
-            button2.setText(correctAnswer +1 + "");
+            button1.setText(correctAnswer + 1+"");
+            button2.setText(correctAnswer  + "");
             button3.setText(correctAnswer -1 +"");
             button4.setText(correctAnswer + 2 +"");
         }
         if(correctButton == 2){
-            button1.setText(correctAnswer + "");
-            button2.setText(correctAnswer +1 + "");
-            button3.setText(correctAnswer -1 +"");
+            button1.setText(correctAnswer -1 +"");
+            button2.setText(correctAnswer + 1 + "");
+            button3.setText(correctAnswer  +"");
             button4.setText(correctAnswer + 2 +"");
         }
         if(correctButton == 3){
-            button1.setText(correctAnswer + "");
+            button1.setText(correctAnswer + 3 + "");
             button2.setText(correctAnswer +1 + "");
             button3.setText(correctAnswer + -1 +"");
-            button4.setText(correctAnswer + 2 +"");
+            button4.setText(correctAnswer +"");
         }
         //check is operand2 is not zero; otherwise in case of division-divide by zero error will come
 
@@ -134,6 +134,9 @@ public class MainActivity extends AppCompatActivity {
     public int sumOfScore(){
         //Computing the sum of score array, which has the 1 or in each index,depending on correct or incorrect answers
         int sum=0;
+        for(int i=0;i<score.length;i++){
+            sum=sum+score[i];
+        }
        // your code here
         return sum;
     }
@@ -154,6 +157,11 @@ public class MainActivity extends AppCompatActivity {
     public String getInterpretation(int [][]dataFrame,double slope){
        //provide interpretation based on your slope analysis
         // Your code here
-        return "Your Interpretation";
+        if(slope >=0 && slope <=0.5)
+            return "Steady Can do Better !";
+        else if(slope>0.5)
+            return "Getting better !";
+        else
+            return "Poor performance !";
     }
 }
